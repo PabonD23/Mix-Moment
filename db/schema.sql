@@ -5,6 +5,8 @@ USE mixer_DB;
 
 CREATE TABLE members(
   id INT NOT NULL AUTO_INCREMENT,
+  email VARCHAR(100) NOT NULL,
+  'password' VARCHAR(100) NOT NULL,
   first_name VARCHAR(100) NOT NULL,
   last_name VARCHAR(100) NOT NULL,
   city_state VARCHAR(100) NOT NULL,
