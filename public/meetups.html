@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Meetups</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <!--  jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+    <!-- Isolated Version of Bootstrap, not needed if your site already uses Bootstrap -->
+    <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+
+    <!-- Bootstrap Date-Picker Plugin -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"
+    />
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/survey.css">
+    <script type="text/javascript" src="js/logic.js"></script>
+
+</head>
+
+<body>
+
+    <div class='container'>
+
+        <div class='row'>
+            <div class="col-lg-12">
+                <h1 align="center">Meet-Ups</h1>
+            </div>
+        </div>
+        <nav class="white">
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo black-text">
+                    <img src="images2/meet-up.png" alt="Meet-up" height="55" width="55">
+                </a>
+                <ul class="hide-on-med-and-down right">
+                    <li>
+                        <div class="center row">
+                            <div class="col s12 ">
+                                <div class="row" id="topbarsearch">
+                                    <div class="input-field col s6 s12 black-text">
+                                        <i class="black-text material-icons prefix">search</i>
+                                        <input type="text" placeholder="Meet-ups" id="autocomplete-input" class="autocomplete black-text">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="index.html" class="black-text">Home</a>
+                    </li>
+                    <li>
+                        <a href="forums.html" class="black-text">Forums</a>
+                    </li>
+                    <li>
+                        <a href="survey.html" class="black-text">Interest Survey</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="card-panel">
+            <span class="black-text">Your interests:</span>
+        </div>
+        <div class="card-panel">
+            <span class="black-text">Post a Meet-up:</span>
+            <div class="bootstrap-iso">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+
+                            <!-- Form code begins -->
+                            <form method="post">
+                                <div class="form-group">
+                                    <!-- Date input -->
+                                    <label class="control-label" for="date">Date</label>
+                                    <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text" />
+                                </div>
+                                <div class="form-group">
+                                    <!-- Submit button -->
+                                    <button class="btn btn-primary " name="submit" type="submit">Submit</button>
+                                </div>
+                            </form>
+                            <!-- Form code ends -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        </form>
+
+    </div>
+
+</body>
+
+</html>
+<script>
+    $(document).ready(function () {
+        var date_input = $('input[name="date"]'); //our date input has the name "date"
+        var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
+        var options = {
+            format: 'mm/dd/yyyy',
+            container: container,
+            todayHighlight: true,
+            autoclose: true,
+        };
+        date_input.datepicker(options);
+    })
+</script>
