@@ -1,0 +1,20 @@
+.int-labels{
+    background-color: navy;
+    text-align: center;
+    color: white;
+    position: relative;
+    bottom:60px;
+    width:200px;
+    padding:5px;
+
+};
+
+.int-image{
+    width:100%;
+    height:auto;
+};
+
+.interest-div{
+    position: absolute;
+
+}
