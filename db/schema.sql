@@ -10,7 +10,6 @@ CREATE TABLE members(
   first_name VARCHAR(100) NOT NULL,
   last_name VARCHAR(100) NOT NULL,
   city_state VARCHAR(100) NOT NULL,
-  interests,
   PRIMARY KEY (id)
 );
 
@@ -18,6 +17,5 @@ CREATE TABLE meetups(
   id INT NOT NULL AUTO_INCREMENT,
   event_title VARCHAR(140) NOT NULL,
   city_state VARCHAR(100) NOT NULL,
-  interests,
   PRIMARY KEY (id)
 );
