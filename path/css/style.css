@@ -1,3 +1,12 @@
+body{
+    background-color: lightgrey;
+
+}
+
+.container{
+    background-color: white;
+}
+
 .int-labels{
     background-color:#63B0CD;
     opacity:0.9;
@@ -7,7 +16,7 @@
     bottom:100px;
     width:200px;
     padding:2px;
-};
+}
 
 .int-image{
     width:100%;
@@ -16,7 +25,7 @@
     border-width: 10px;
     border-color:#63B0CD; */
 
-};
+}
 
 .interest-div{
     position: absolute;
