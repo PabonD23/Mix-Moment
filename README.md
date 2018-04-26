@@ -43,5 +43,10 @@
 
 ## Layout
 
+![MIX-MOMENT](Home Page.png)
+![MIX-MOMENT](Interests & Login.png)
+![MIX-MOMENT](Meet-ups.png)
+
+
 
    
