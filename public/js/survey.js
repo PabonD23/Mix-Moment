@@ -103,7 +103,7 @@ $("#int-link-16").on("click", function(){
 });
 
 $(document).ready(function() {
-// Getting a reference to the input field where user adds a new todo
+// Getting a reference to the input field where user adds information
 var $nameInput = $("#nameInput");
 var $locationInput = $("#locationInput");
 var $usernameInput = $("#usernameInput");
@@ -124,6 +124,6 @@ var $emailInput = $("#emailInput");
           email: $emailInput.val().trim()
       };
 
-      $.post("/api/members", members);
+      $.post("/api/users", Users);
       };
 });
