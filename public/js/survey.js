@@ -109,6 +109,23 @@ var $locationInput = $("#locationInput");
 var $usernameInput = $("#usernameInput");
 var $passwordInput = $("#passwordInput");
 var $emailInput = $("#emailInput");
+var $outdoor = $("#int-link-1");
+var $fitness = $("#int-link-2");
+var $photography = $("#int-link-3");
+var $dance = $("#int-link-4");
+var $culture = $("#int-link-5");
+var $technology = $("#int-link-6");
+var $gaming = $("#int-link-7");
+var $travel = $("#int-link-8");
+var $food = $("#int-link-9");
+var $books = $("#int-link-10");
+var $fashion = $("#int-link-11");
+var $family = $("#int-link-12");
+var $social = $("#int-link-13");
+var $music = $("#int-link-14");
+var $pets = $("#int-link-15");
+var $career = $("#int-link-16");
+
 //   Click event for submit button
   $("#submit-survey").on("click", function(){
     addNewUser();
@@ -127,4 +144,12 @@ var $emailInput = $("#emailInput");
 
       $.post("/api/users", newUser);
       };
+
+  function addInterests (event) {
+    var userInterests = {
+      username: $usernameInput.val().trim(),
+      
+
+    }
+  }
 });
