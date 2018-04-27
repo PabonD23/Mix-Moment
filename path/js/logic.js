@@ -62,3 +62,29 @@ $("#int-link-15").on("click", function(){
 $("#int-link-16").on("click", function(){
     $("#int-image16").attr("class", "img-active");
 });
+
+$(document).ready(function() {
+// Getting a reference to the input field where user adds a new todo
+var $nameInput = $("#nameInput");
+var $locationInput = $("#locationInput");
+var $usernameInput = $("#usernameInput");
+var $passwordInput = $("#passwordInput");
+var $emailInput = $("#emailInput");
+    //Click event for submit button
+    $("#submit-survey").on("click", function(){
+
+    })
+
+    function addNewUser (event) {
+        event.preventDefault();
+        var newUser = {
+            member_name: $nameInput.val().trim(),
+            city_state: $locationInput.val().trim(),
+            username: $usernameInput.val().trim(),
+            password: $passwordInput.val().trim(),
+            email: $emailInput.val().trim()
+        };
+
+        $.post("/api/members", members);
+        };
+});
