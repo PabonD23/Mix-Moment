@@ -75,8 +75,11 @@ module.exports = function(app) {
     app.post("/api/index", function(req, res) {
       console.log(req.body);
       db.User.create({
+        name: req.body.name,
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+        username: req.body.username,
+        location: req.body.location
       }).then(function() {
         res.redirect(307, "/api/survey");
       }).catch(function(err) {

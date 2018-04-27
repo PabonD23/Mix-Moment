@@ -1,21 +1,2 @@
 DROP DATABASE IF EXISTS mixer_DB;
 CREATE DATABASE mixer_DB;
-
-USE mixer_DB;
-
-CREATE TABLE members(
-  id INT NOT NULL AUTO_INCREMENT,
-  email VARCHAR(100) NOT NULL,
-  username VARCHAR(10) NOT NULL,
-  'password' VARCHAR(100) NOT NULL,
-  member_name VARCHAR(100) NOT NULL,
-  city_state VARCHAR(100) NOT NULL,
-  PRIMARY KEY (id)
-);
-
-CREATE TABLE meetups(
-  id INT NOT NULL AUTO_INCREMENT,
-  event_title VARCHAR(140) NOT NULL,
-  city_state VARCHAR(100) NOT NULL,
-  PRIMARY KEY (id)
-);
