@@ -109,13 +109,14 @@ var $locationInput = $("#locationInput");
 var $usernameInput = $("#usernameInput");
 var $passwordInput = $("#passwordInput");
 var $emailInput = $("#emailInput");
-  //Click event for submit button
+//   Click event for submit button
   $("#submit-survey").on("click", function(){
+    addNewUser();
 
   })
 
   function addNewUser (event) {
-      event.preventDefault();
+      // event.preventDefault();
       var newUser = {
           name: $nameInput.val().trim(),
           location: $locationInput.val().trim(),
@@ -124,6 +125,6 @@ var $emailInput = $("#emailInput");
           email: $emailInput.val().trim()
       };
 
-      $.post("/api/users", Users);
+      $.post("/api/users", newUser);
       };
 });
