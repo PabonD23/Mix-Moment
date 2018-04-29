@@ -88,6 +88,36 @@ module.exports = function(app) {
         // res.status(422).json(err.errors[0].message);
       });
     });
+
+    //Route for posting new interests to database
+    app.post("/api/interests", function(req, res) {
+      console.log(req.body);
+      db.Interest.create({
+        username: req.body.username,
+        outdoor: req.body.outdoor,
+        fitness: req.body.fitness,
+        photography: req.body.photography,
+        dance: req.body.dance, 
+        culture: req.body.culture,
+        technology: req.body.technology,
+        gaming: req.body.gaming,
+        travel: req.body.travel,
+        food: req.body.food,
+        books: req.body.books,
+        fashion: req.body.fashion,
+        family: req.body.family,
+        social: req.body.social,
+        music: req.body.music,
+        pets: req.body.pets,
+        career:req.body.career
+      }).then(function() {
+        res.redirect(307, "/api/meetings");
+      }).catch(function(err) {
+        console.log(err);
+        res.json(err);
+        // res.status(422).json(err.errors[0].message);
+      });
+    });
   
     // Route for logging user out
     app.get("/logout", function(req, res) {
