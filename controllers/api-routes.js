@@ -81,7 +81,7 @@ module.exports = function(app) {
         username: req.body.username,
         location: req.body.location
       }).then(function() {
-        res.redirect(307, "/api/meetings");
+        // res.redirect(307, "/api/meetings");
       }).catch(function(err) {
         console.log(err);
         res.json(err);
@@ -109,9 +109,9 @@ module.exports = function(app) {
         social: req.body.social,
         music: req.body.music,
         pets: req.body.pets,
-        career:req.body.career
+        career: req.body.career
       }).then(function() {
-        res.redirect(307, "/api/meetings");
+        // res.redirect(307, "/api/meetings");
       }).catch(function(err) {
         console.log(err);
         res.json(err);

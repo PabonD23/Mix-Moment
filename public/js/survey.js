@@ -34,8 +34,6 @@ $(document).ready(function() {
         console.log(err);
       });
     }
-  
-  });
 
 $(document).ready(function() {
 // Getting a reference to the input field where user adds information
@@ -83,28 +81,29 @@ var $career = $("#int-link-16");
       $.post("/api/users", newUser);
       };
 
-  function addNewInterests () {
+  function addNewInterests (event) {
     var newInterest = {
       username: $usernameInput.val().trim(),
-      outdoor: $outdoor.val(),
-      fitness: $fitness.val(),
-      photography: $photography.val(),
-      dance: $dance.val(),
-      culture: $culture.val(),
-      technology: $technology.val(),
-      gaming: $gaming.val(),
-      travel: $travel.val(),
-      food: $food.val(),
-      books: $books.val(),
-      fashion: $fashion.val(),
-      family: $family.val(),
-      social: $social.val(),
-      music: $music.val(),
-      pets: $pets.val(),
-      career: $career.val()
+      outdoor: $outdoor.is(':checked'),
+      fitness: $fitness.is(':checked'),
+      photography: $photography.is(':checked'),
+      dance: $dance.is(':checked'),
+      culture: $culture.is(':checked'),
+      technology: $technology.is(':checked'),
+      gaming: $gaming.is(':checked'),
+      travel: $travel.is(':checked'),
+      food: $food.is(':checked'),
+      books: $books.is(':checked'),
+      fashion: $fashion.is(':checked'),
+      family: $family.is(':checked'),
+      social: $social.is(':checked'),
+      music: $music.is(':checked'),
+      pets: $pets.is(':checked'),
+      career: $career.is(':checked')
   };
 
   $.post("/api/interests", newInterest);
-  }
+  };
 
+});
 });
