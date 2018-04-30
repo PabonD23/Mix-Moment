@@ -1,4 +1,6 @@
 # Mix-Moment
+
+
 ## Team Members
 
    1. John Jung 
@@ -40,6 +42,10 @@
     * Front End
     
     * Back End
+
+## Built with
+
+    -  Visual Studio Code    
 
 ## Layout
 
