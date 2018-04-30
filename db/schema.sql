@@ -16,7 +16,8 @@ CREATE TABLE members(
 CREATE TABLE meetups(
   id INT NOT NULL AUTO_INCREMENT,
   event_title VARCHAR(140) NOT NULL,
-  city_state VARCHAR(100) NOT NULL,
+  city VARCHAR(100) NOT NULL,
+  state VARCHAR(100) NOT NULL,
   event_date DATETIME NOT NULL,
   PRIMARY KEY (id)
 );
