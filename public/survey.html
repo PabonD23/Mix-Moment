@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Survey</title>
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" src="js/survey.js"></script>
+
+</head>
+<body>
+
+<div class='container'>
+
+	<div class='row'>
+		<div class='col s12 m12 center-align'>
+			<h1>Logo Placeholder</h1>
+			<h4>Create an account and select your interests to get started!</h4>
+		</div>
+	</div>
+
+	<div class='row'>
+		<div class='col s12 m12 center-align'>
+			<form>
+
+				<div class="section">
+					<h4>Account</h4>
+					<div class="divider"></div>
+				</div>
+
+				<div class="row">
+					<div class="input-field col s6">
+						<i class="material-icons prefix">face</i>
+						<input id="nameInput" type="text" class="validate">
+						<label class="active" for="nameInput">Name</label>
+					</div>
+
+					<div class="input-field col s6">
+						<i class="material-icons prefix">map</i>
+						<input id="locationInput" type="text" class="validate">
+						<label class="active" for="locationInput">City & State</label>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="input-field col s6">
+						<i class="material-icons prefix">account_circle</i>
+						<input id="usernameInput" type="text" class="validate">
+						<label class="active" for="usernameInput">Username</label>
+					</div>
+
+					<div class="input-field col s6">
+						<i class="material-icons prefix">keyboard</i>
+						<input id="passwordInput" type="text" class="validate">
+						<label class="active" for="passwordInput">Password</label>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="input-field col s12">
+						<i class="material-icons prefix">local_post_office</i>
+						<input id="emailInput" type="text" class="validate">
+						<label class="active" for="emailInput">Email</label>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<!--Interests Container-->
+<div class="container">
+		<div class="row">
+			<div class="col s12 m12 center-align">
+				<h4>Interests</h4>
+				<p>Select as many interests as you'd like</p>
+				<div class="divider"></div>
+			</div>
+		</div>
+		<form>
+		<div class="row">
+			<!--Outdoor Checkbox-->
+			<div class="col s3 m3">
+				<p>
+					<label class="fancy-checkbox-label">
+						<input type="checkbox" id="int-link-1">
+						<span class="fancy-checkbox fancy-checkbox-img"></span>
+						<img src="images/park.jpg" class="int-image" id="int-image1" alt="Image of a park" height="200" width="200" />
+						<div class="int-labels"><p>Outdoor Activities</p></div>
+					</label>
+				</p>
+			</div>
+			<!--Fitness Checkbox-->
+			<div class="col s3 m3">
+				<p>
+					<label class="fancy-checkbox-label">
+						<input type="checkbox" id="int-link-2">
+						<span class="fancy-checkbox fancy-checkbox-img"></span>
+						<img src="images/runner.jpg" class="int-image" id="int-image2" alt="Image of a runner" height="200" width="200" />
+						<div class="int-labels"><p>Fitness</p></div>
+					</label>
+				</p>
+			</div>
+			<!--Photography Checkbox-->
+			<div class="col s3 m3">
+				<p>
+					<label class="fancy-checkbox-label">
+						<input type="checkbox" id="int-link-3">
+						<span class="fancy-checkbox fancy-checkbox-img"></span>
+						<img src="images/camera.jpg" class="int-image" id="int-image3" alt="Image of a camera" height="200" width="200" />
+						<div class="int-labels"><p>Photography</p></div>
+					</label>
+				</p>
+			</div>
+			<!--Dance Checkbox-->
+			<div class="col s3 m3" class="interest-div">
+				<p>
+					<label class="fancy-checkbox-label">
+						<input type="checkbox" id="int-link-4">
+						<span class="fancy-checkbox fancy-checkbox-img"></span>
+						<img src="images/dance.jpg" class="int-image" id="int-image4" alt="Image of dancers" height="200" width="200" />
+						<div class="int-labels"><p>Dance</p></div>
+					</label>
+				</p>
+			</div>
+		</div>
+		<!--Culture Checkbox-->
+		<div class="row">
+			<div class="col s3 m3" class="interest-div">
+				<p>
+					<label class="fancy-checkbox-label">
+						<input type="checkbox" id="int-link-5">
+						<span class="fancy-checkbox fancy-checkbox-img"></span>
+						<img src="images/language.jpg" class="int-image" id="int-image5" alt="Image oflanguage books" height="200" width="200" />
+						<div class="int-labels"><p>Language & Culture</p></div>
+					</label>
+				</p>
+			</div>
+			<!--Technology Checkbox-->
+			<div class="col s3 m3" class="interest-div">
+				<p>
+					<label class="fancy-checkbox-label">
+						<input type="checkbox" id="int-link-6">
+						<span class="fancy-checkbox fancy-checkbox-img"></span>
+						<img src="images/tech.jpg" class="int-image" id="int-image6" alt="Image of computers" height="200" width="200" />
+						<div class="int-labels"><p>Technology</p></div>
+					</label>
+				</p>
+			</div>
+			<!--Gaming Checkbox-->
+			<div class="col s3 m3" class="interest-div">
+				<p>
+					<label class="fancy-checkbox-label">
+						<input type="checkbox" id="int-link-7">
+						<span class="fancy-checkbox fancy-checkbox-img"></span>
+						<img src="images/gaming.jpg" class="int-image" id="int-image7" alt="Image of a video game controller" height="200" width="200" />
+						<div class="int-labels"><p>Gaming</p></div>
+					</label>
+				</p>
+			</div>
+			<!--Travel Checkbox-->
+			<div class="col s3 m3" class="interest-div">
+				<p>
+					<label class="fancy-checkbox-label">
+						<input type="checkbox" id="int-link-8">
+						<span class="fancy-checkbox fancy-checkbox-img"></span>
+						<img src="images/travel.jpg" class="int-image" id="int-image8" alt="Image ofan airplane" height="200" width="200" />
+						<div class="int-labels"><p>Travel</p></div>
+					</label>
+				</p>
+			</div>
+		</div>
+		<!--Food Checkbox-->
+		<div class="row">
+			<div class="col s3 m3" class="interest-div">
+				<p>
+					<label class="fancy-checkbox-label">
+						<input type="checkbox" id="int-link-9">
+						<span class="fancy-checkbox fancy-checkbox-img"></span>
+						<img src="images/food.jpg" class="int-image" id="int-image9" alt="Image of a meal" height="200" width="200" />
+						<div class="int-labels"><p>Food & Drink</p></div>
+					</label>
+				</p>
+			</div>
+			<!--Books Checkbox-->
+			<div class="col s3 m3" class="interest-div">
+				<p>
+					<label class="fancy-checkbox-label">
+						<input type="checkbox" id="int-link-10">
+						<span class="fancy-checkbox fancy-checkbox-img"></span>
+						<img src="images/books.jpg" class="int-image" id="int-image10" alt="Image of books" height="200" width="200" />
+						<div class="int-labels"><p>Books</p></div>
+					</label>
+				</p>
+			</div>
+			<!--Fashion Checkbox-->
+			<div class="col s3 m3" class="interest-div">
+				<p>
+					<label class="fancy-checkbox-label">
+						<input type="checkbox" id="int-link-11">
+						<span class="fancy-checkbox fancy-checkbox-img"></span>
+						<img src="images/fashion.jpg" class="int-image" id="int-image11" alt="Image of clothing" height="200" width="200" />
+						<div class="int-labels"><p>Fashion & Beauty</p></div>
+					</label>
+				</p>
+			</div>
+			<!--Family Checkbox-->
+			<div class="col s3 m3" class="interest-div">
+				<p>
+					<label class="fancy-checkbox-label">
+						<input type="checkbox" id="int-link-12">
+						<span class="fancy-checkbox fancy-checkbox-img"></span>
+						<img src="images/children.jpg" class="int-image" id="int-image12" alt="Image of kids playing" height="200" width="200" />
+						<div class="int-labels"><p>Children & Family</p></div>
+					</label>
+				</p>
+			</div>
+		</div>
+
+		<div class="row">
+			<!--Social Checkbox-->
+			<div class="col s3 m3" class="interest-div">
+				<p>
+					<label class="fancy-checkbox-label">
+						<input type="checkbox" id="int-link-13">
+						<span class="fancy-checkbox fancy-checkbox-img"></span>
+						<img src="images/social.jpg" class="int-image" id="int-image13" alt="Image of a group of people" height="200" width="200" />
+						<div class="int-labels"><p>Social</p></div>
+					</label>
+				</p>
+			</div>
+			<!--Music and Film Checkbox-->
+			<div class="col s3 m3" class="interest-div">
+				<p>
+					<label class="fancy-checkbox-label">
+						<input type="checkbox" id="int-link-14">
+						<span class="fancy-checkbox fancy-checkbox-img"></span>
+						<img src="images/music.jpg" class="int-image" id="int-image14" alt="Image of a theater" height="200" width="200" />
+						<div class="int-labels"><p>Music & Film</p></div>
+					</label>
+				</p>
+			</div>
+			<!--Pets Checkbox-->
+			<div class="col s3 m3" class="interest-div">
+				<p>
+					<label class="fancy-checkbox-label">
+						<input type="checkbox" id="int-link-15">
+						<span class="fancy-checkbox fancy-checkbox-img"></span>
+						<img src="images/pets.jpg" alt="Image of pets" height="200" width="200" class="int-image" id="int-image15" />
+						<div class="int-labels"><p>Pets</p></div>
+					</label>
+				</p>
+			</div>
+			<!--Career Checkbox-->
+			<div class="col s3 m3" class="interest-div">
+				<p>
+					<label class="fancy-checkbox-label">
+						<input type="checkbox" id="int-link-16">
+						<span class="fancy-checkbox fancy-checkbox-img"></span>
+						<img src="images/business.jpg" class="int-image" id="int-image16" alt="Image of business meeting" height="200" width="200" />
+						<div class="int-labels"><p>Career & Business</p></div>
+					</label>
+				</p>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col s12 m12 center-align" id="button-div">
+				<button class="waves-effect waves-light btn-large" id="submit-survey" type="button">
+					Create My Account
+				</button>
+			</div>
+		</div>
+	</select>
+</form>
+</div>
+<script src="js/survey.js"></script>
+</body>
+</html>
