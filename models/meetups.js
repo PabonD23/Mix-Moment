@@ -20,6 +20,10 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      // foreignKey: {
+      //   User_id: models.User(id),
+      //   allowNull: false,
+      // },
     });
 
     Meetup.associate = function(models) {

@@ -1,10 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
     var Interest = sequelize.define("Interest", {
-      // Name cannot be null
-      username: {
-        type: DataTypes.STRING,
-        allowNull: false
-      },
       outdoor: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
@@ -85,6 +80,10 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false,
         default: false,
       },
+      // foreignKey: {
+      //   User_id: models.User(id),
+      //   allowNull: false,
+      // },
     });
     //Associate Interests with User
     Interest.associate = function(models) {
