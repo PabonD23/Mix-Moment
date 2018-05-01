@@ -2,7 +2,7 @@ $(document).ready(function() {
   // Getting references to the name input and author container, as well as the table body
   var $eventDate= $("#date");
   var $eventTitle = $("#title");
-  var $category = $("category")
+  var $category = $("category").find( "option:selected" ).prop("value");
   var $city = $("#city");
   var $state = $("#state");
   // Adding event listeners to the form to create a new object, and the button to delete
@@ -21,7 +21,7 @@ $(document).ready(function() {
     var newMeetup = {
       date: $eventDate.val(),
       title: $eventTitle.val().trim(),
-      category: $category.val(),
+      category: $category,
       city: $city.val().trim(),
       state: $state.val().trim()
     };

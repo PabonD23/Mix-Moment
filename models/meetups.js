@@ -21,6 +21,16 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false,
       },
     });
+
+    Meetup.associate = function(models) {
+      // We're saying that a Meetup should belong to a User
+      // A meetup can't be created without a User due to the foreign key constraint
+      Meetup.belongsTo(models.User, {
+        foreignKey: {
+          allowNull: false
+        }
+      });
+    };
   
     return Meetup;
-};
+}
