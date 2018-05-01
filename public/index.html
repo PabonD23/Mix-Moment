@@ -6,6 +6,7 @@
   <!--Import materialize.css-->
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
 
   <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+"
     crossorigin="anonymous"></script>
@@ -26,19 +27,19 @@
           </a>
           <ul class="right hide-on-med-and-down">
             <li>
-              <a href="/index">Home</a> 
+              <a href="index.html">Home</a> 
             </li>
             <li>
-                <a href="/survey">Interests</a> 
+                <a href="survey.html">Interests</a> 
             </li>
             <li>
-                <a href="/meetups">Meet-up's</a> 
+                <a href="meetups.html">Meet-up's</a> 
             </li>
             <li>
-                <a href="/signup">Sign-Up</a> 
+                <a href="survey.html">Sign-Up</a> 
             </li>
             <li>
-                <a href="/login">Login</a> 
+                <a href="login.html">Login</a> 
             </li>
           </ul>
         </div>
@@ -47,19 +48,19 @@
   </div>
   <ul class="sidenav" id="mobile-nav">
       <li>
-        <a href="/index">Home</a> 
+        <a href="index.html">Home</a> 
       </li>
       <li>
-          <a href="/survey">Interests</a> 
+          <a href="survey.html">Interests</a> 
       </li>
       <li>
-          <a href="/meetups">Meet-up's</a> 
+          <a href="meetups.html">Meet-up's</a> 
       </li>
       <li>
-          <a href="/signup">Sign-Up</a> 
+          <a href="survey.html">Sign-Up</a> 
       </li>
       <li>
-          <a href="/login">Login</a> 
+          <a href="login.html">Login</a> 
       </li>
     </ul>
   
@@ -94,38 +95,40 @@
   <ul class="slides">
     <li>
       <img src="https://cdn.dribbble.com/users/196525/screenshots/2779170/meetup-dribbble.gif"> 
-      <div class="caption left-align">
+      <div class="caption center-align">
         <h2>Welcome</h2>
         <h5 class="light grey-text text-lighten-3 hide-on-small-only"></h5>
       </div>
     </li>
     <li>  
       <img src="https://cmxpv89733.i.lithium.com/t5/image/serverpage/image-id/127828i06E52B5F0A41CA9C/image-size/large?v=1.0&px=999"> 
-      <div class="caption left-align">
+      <div class="caption center-align">
         <h2>Sign-up to connect with your Interests</h2>
         <h5 class="light grey-text text-lighten-3 hide-on-small-only"></h5>
       </div>
     </li>
     <li>
       <img src="https://cdn.dribbble.com/users/363821/screenshots/3329508/metin-seven_3d-animated-gif-animation-computer-work-night.gif"> 
-      <div class="caption right-align">
+      <div class="caption center-align">
         <h3>Login to connect with your Interests</h3>
         <h5 class="light grey-text text-lighten-3 hide-on-small-only"></h5>
       </div>
     </li>
   </ul>
 </div>
-
-<section class="section section-follow teal darken-2 white-text center">
+<footer class="page-footer footer-fixed teal darken-2 white-text center">
+    <h5><span class="flow-text "><i class="material-icons">copyright</i> 2018 Copyright</span></h5>
+  </footer>
+<!-- <section class="section section-follow teal darken-2 white-text center">
   <div class="container">
     <div clas="row">
       <div class="col s12">
         <h5><span class="flow-text"><i class="material-icons">copyright</i> 2018 Copyright</span></h5>
       </div>
     </div>
-  </div>
+  </div> -->
 
-</section>
+<!-- </section> -->
 
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
@@ -139,7 +142,6 @@
 
      const slider = document.querySelector(".slider");
      M.Slider.init(slider, {
-      
        indicators: true,
        height: 900,
        transition: 500,
