@@ -3,66 +3,66 @@ var db = require("../models");
 var passport = require("../config/passport");
 
 
-module.exports = function(app){
+// module.exports = function(app){
 
-    app.get('/api/survey', function(req, res){
-        res.json(friends);
-    });
+//     app.get('/api/survey', function(req, res){
+//         res.json(friends);
+//     });
 
-    app.post('/api/survey', function(req, res){
+//     app.post('/api/survey', function(req, res){
         
-        console.log(req.body.name);
-        console.log(req.body.scores.length);
+//         console.log(req.body.name);
+//         console.log(req.body.scores.length);
 
-        var match = {};
+//         var match = {};
         
-        var differenceToBeat = 100;
+//         var differenceToBeat = 100;
 
-        for (var i = 0; i < friends.length; i++) {
+//         for (var i = 0; i < friends.length; i++) {
 
-            var differenceArray = [];
-            var totalDifference = 0;
+//             var differenceArray = [];
+//             var totalDifference = 0;
 
-            for (var j = 0; j < friends[i].scores.length; j++) {
+//             for (var j = 0; j < friends[i].scores.length; j++) {
 
-                differenceArray.push( Math.abs( req.body.scores[j] - friends[i].scores[j] ) );
+//                 differenceArray.push( Math.abs( req.body.scores[j] - friends[i].scores[j] ) );
 
-            };
+//             };
 
-            console.log(differenceArray)
+//             console.log(differenceArray)
 
-            for (var k = 0; k < differenceArray.length; k++) {
-                totalDifference += differenceArray[k];
-            }
+//             for (var k = 0; k < differenceArray.length; k++) {
+//                 totalDifference += differenceArray[k];
+//             }
 
-            console.log(totalDifference)
+//             console.log(totalDifference)
             
-            if (match == {}) {
-                match = friends[i];
-                differenceToBeat = totalDifference;
-            } else if ( totalDifference < differenceToBeat ) {
-                match = friends[i];
-                differenceToBeat = totalDifference;
-            }
+//             if (match == {}) {
+//                 match = friends[i];
+//                 differenceToBeat = totalDifference;
+//             } else if ( totalDifference < differenceToBeat ) {
+//                 match = friends[i];
+//                 differenceToBeat = totalDifference;
+//             }
 
-            console.log(differenceToBeat)
+//             console.log(differenceToBeat)
 
-        }
+//         }
 
-        console.log('Your match is: ' + match.name)
+//         console.log('Your match is: ' + match.name)
 
-        friends.push(req.body)
-        res.json(match)
+//         friends.push(req.body)
+//         res.json(match)
 
-    });
+//     });
 
-};
+// };
 
 module.exports = function(app) {
     // Using the passport.authenticate middleware with our local strategy.
     // If the user has valid login credentials, send them to the members page.
     // Otherwise the user will be sent an error
-    app.post("/api/survey", passport.authenticate("local"), function(req, res) {
+    app.post("/api/login", passport.authenticate("local"), function(req, res) {
       // Since we're doing a POST with javascript, we can't actually redirect that post into a GET request
       // So we're sending the user back the route to the members page because the redirect will happen on the front end
       // They won't get this or even be able to access this page if they aren't authed
@@ -80,8 +80,9 @@ module.exports = function(app) {
         password: req.body.password,
         username: req.body.username,
         location: req.body.location
-      }).then(function() {
-        res.redirect(307, "/api/meetings");
+      }).then(function( newUser ) {
+        console.log( newUser );
+        // res.redirect(307, "/api/meetings");
       }).catch(function(err) {
         console.log(err);
         res.json(err);
@@ -109,15 +110,33 @@ module.exports = function(app) {
         social: req.body.social,
         music: req.body.music,
         pets: req.body.pets,
-        career:req.body.career
+        career: req.body.career
       }).then(function() {
-        res.redirect(307, "/api/meetings");
+        // res.redirect(307, "/api/meetings");
       }).catch(function(err) {
         console.log(err);
         res.json(err);
         // res.status(422).json(err.errors[0].message);
       });
     });
+
+    app.post("/api/meetups", function(req, res) {
+      console.log(req.body);
+      db.Meetup.create({
+        date: req.body.date,
+        title: req.body.title,
+        category: req.body.category,
+        city: req.body.city,
+        state: req.body.state
+      }).then(function() {
+        // res.redirect(307, "/api/meetups);
+      }).catch(function(err) {
+        console.log(err);
+        res.json(err);
+        // res.status(422).json(err.errors[0].message);
+      });
+    });
+  
   
     // Route for logging user out
     app.get("/logout", function(req, res) {

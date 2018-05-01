@@ -6,7 +6,6 @@
     <title>Meetups</title>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" type="text/javascript"></script>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -15,83 +14,150 @@
 
 <body>
 
-    <div class='container'>
-
-        <div class='row'>
-            <div class="col-lg-12">
-                <h1 align="center">Meet-Ups</h1>
-            </div>
-        </div>
-        <nav class="white">
-            <div class="nav-wrapper">
-                <a href="#" class="brand-logo black-text">
-                    <img src="images2/meet-up.png" alt="Meet-up" height="55" width="55">
-                </a>
-                <ul class="hide-on-med-and-down right">
-                    <li>
-                        <div class="center row">
-                            <div class="col s12 ">
-                                <div class="row" id="topbarsearch">
-                                    <div class="input-field col s6 s12 black-text">
-                                        <i class="black-text material-icons prefix">search</i>
-                                        <input type="text" placeholder="Meet-ups" id="autocomplete-input" class="autocomplete black-text">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="index.html" class="black-text">Home</a>
-                    </li>
-                    <li>
-                        <a href="forums.html" class="black-text">Forums</a>
-                    </li>
-                    <li>
-                        <a href="survey.html" class="black-text">Interest Survey</a>
-                    </li>
-                </ul>
+    <div class="navbar-fixed">
+        <nav class="teal">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a href="" class="brand-logo">MixMoment</a>
+                    <a href="#" data-target="mobile-nav" class="sidenav-trigger">
+                        <i class="material-icons">menu</i>
+                    </a>
+                    <ul class="right hide-on-med-and-down">
+                        <li>
+                            <a href="index.html">Home</a>
+                        </li>
+                        <li>
+                            <a href="survey.html">Interests</a>
+                        </li>
+                        <li>
+                            <a href="meetups.html">Meet-ups</a>
+                        </li>
+                        <li>
+                            <a href="signup.html">Sign-Up</a>
+                        </li>
+                        <li>
+                            <a href="login.html">Login</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
-        <div class="card-panel">
-            <span class="black-text">Your interests:</span>
+    </div>
+    <ul class="sidenav" id="mobile-nav">
+        <li>
+            <a href="index.html">Home</a>
+        </li>
+        <li>
+            <a href="survey.html">Interests</a>
+        </li>
+        <li>
+            <a href="meetups.html">Meet-ups</a>
+        </li>
+        <li>
+            <a href="signup.html">Sign-Up</a>
+        </li>
+        <li>
+            <a href="login.html">Login</a>
+        </li>
+    </ul>
+    <div class='container'>
+        <div class='row'>
+            <div class='col s12 m12 center-align'>
+                    <h1>Meetups</h1>
+            </div>
         </div>
-        <div class="card-panel">
-            <span class="black-text">Post a Meet-up:</span>
-            <div class="bootstrap-iso">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="row">
+            <div class="col s12 m12 center-align">
+                <h3 class="black-text">Upcoming meetups that match your interests</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m12 center-align" id="Placeholer for meetups"></div>
+        </div>
+    </div>
 
-                            <!-- Form code begins -->
-                            <form method="post">
-                                <div class="form-group">
-                                    <!-- Date input -->
-                                    <label class="control-label" for="date">Date</label>
-                                    <input class="form-control datepicker" id="date" name="date" placeholder="MM/DD/YYY" type="text" />
-                                </div>
-                                <div class="form-group">
-                                    <!-- Submit button -->
-                                    <button class="btn btn-primary " name="submit" type="submit">Submit</button>
-                                </div>
-                            </form>
-                            <!-- Form code ends -->
-
-                        </div>
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 center-align">
+                <h3 class="black-text">Post a Meet-up</h3>
+            </div>
+        </div>
+        <form method="post">
+        <div class="row">
+            <div class="col s12 m12 center-align">
+                    <div class="input-field">
+                        <!-- Dropdown Trigger -->
+                        <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Interest Category</a>
+                        <!-- Dropdown Structure -->
+                        <ul id='dropdown1' class='dropdown-content' id="category">
+                            <li value="outdoor">Outdoor Activities</li>
+                            <li value="fitness">Fitness</li>
+                            <li value="photography">Photography</li>
+                            <li value="dance">Dance</li>
+                            <li value="culture">Language & Culture</li>
+                            <li value="technology">Technology</li>
+                            <li value="gaming">Gaming</li>
+                            <li value="travel">Travel</li>
+                            <li value="food">Food & Drink</li>
+                            <li value="books">Books</li>
+                            <li value="fashion">Fashion & Beauty</li>
+                            <li value="family">Children & Family</li>
+                            <li value="social">Social</li>
+                            <li value="music">Music & Film</li>
+                            <li value="pets">Pets</li>
+                            <li value="fitness">Fitness</li>
+                            <li value="career">Career & Business</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-
-
+        <div class="row">
+            <div class="col s6 m6">
+                <div class="form-group">
+                    <!-- Date input -->
+                    <label class="control-label" for="date">Date</label>
+                    <input class="form-control datepicker" id="date" name="date" placeholder="MM/DD/YYY" type="text" />
+                </div>
+            </div>
+            <div class="col s6 m6">
+                <div class="input-field">
+                    <input placeholder="Event title" id="title" type="text" class="validate">
+                    <label for="title">Meet-Up Event Title:</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s6 m6">
+                <div class="input-field">
+                    <input placeholder="City" id="city" type="text" class="validate">
+                    <label for="city">City</label>
+                </div>
+            </div>
+            <div class="col s6 m6">
+                <div class="input-field">
+                    <input placeholder="State" id="state" type="text" class="validate">
+                    <label for="state">State</label>
+                </div>
+             </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m12 center-align">
+                <div class="form-group">
+                    <button class="btn btn-primary " name="submit" type="submit" id="SubmitMeetup">Submit</button>
+                </div>
+            </div>
         </div>
         </form>
-
     </div>
-
+    <!-- Custom Script -->
+    <script src="js/meetups.js" type="text/javascript"></script>
 </body>
 
 </html>
 <script>
     $(document).ready(function () {
         $('.datepicker').datepicker();
-    })
+    });
+
+    $('.dropdown-trigger').dropdown();
 </script>
