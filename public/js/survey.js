@@ -65,7 +65,6 @@ $(document).ready(function() {
   //   Click event for submit button
   $("#submit-survey").on("click", function() {
     addNewUser();
-    console.log( "testing" );
     addNewInterests();
   });
 

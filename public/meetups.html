@@ -88,8 +88,35 @@
                         </div>
                         <div class="row">
                             <div class="input-field col l12">
-                                <input placeholder="Event title" id="event-title" type="text" class="validate">
-                                <label for="meet-up event title">Meet-Up Event Title:</label>
+                                <input placeholder="Event title" id="title" type="text" class="validate">
+                                <label for="title">Meet-Up Event Title:</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col l12">
+                                <!-- Dropdown Trigger -->
+                                <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Interest Category</a>
+
+                                <!-- Dropdown Structure -->
+                                <ul id='dropdown1' class='dropdown-content' id="category">
+                                    <li><a value="outdoor">Outdoor Activities</a></li>
+                                    <li><a value="fitness">Fitness</a></li>
+                                    <li><a value="photography">Photography</a></li>
+                                    <li><a value="dance">Dance</a></li>
+                                    <li><a value="culture">Language & Culture</a></li>
+                                    <li><a value="technology">Technology</a></li>
+                                    <li><a value="gaming">Gaming</a></li>
+                                    <li><a value="travel">Travel</a></li>
+                                    <li><a value="food">Food & Drink</a></li>
+                                    <li><a value="books">Books</a></li>
+                                    <li><a value="fashion">Fashion & Beauty</a></li>
+                                    <li><a value="family">Children & Family</a></li>
+                                    <li><a value="social">Social</a></li>
+                                    <li><a value="music">Music & Film</a></li>
+                                    <li><a value="pets">Pets</a></li>
+                                    <li><a value="fitness">Fitness</a></li>
+                                    <li><a value="career">Career & Business</a></li>
+                                </ul>
                             </div>
                         </div>
                         <div class="row">
@@ -107,7 +134,7 @@
 
                         <div class="form-group">
                             <!-- Submit button -->
-                            <button class="btn btn-primary " name="submit" type="submit">Submit</button>
+                            <button class="btn btn-primary " name="submit" type="submit" id="SubmitMeetup">Submit</button>
                         </div>
                         </form>
                         <!-- Form code ends -->
@@ -129,5 +156,7 @@
 <script>
     $(document).ready(function () {
         $('.datepicker').datepicker();
-    })
+    });
+
+    $('.dropdown-trigger').dropdown();
 </script>

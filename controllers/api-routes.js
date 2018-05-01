@@ -123,9 +123,11 @@ module.exports = function(app) {
     app.post("/api/meetups", function(req, res) {
       console.log(req.body);
       db.Meetup.create({
-        event_title: req.body.eventTitle,
-        city_state: req.body.cityState,
-        event_date: req.body.eventDate
+        date: req.body.date,
+        title: req.body.title,
+        category: req.body.category,
+        city: req.body.city,
+        state: req.body.state
       }).then(function() {
         // res.redirect(307, "/api/meetups);
       }).catch(function(err) {
