@@ -29,79 +29,61 @@ $(document).ready(function() {
     $.post("/api/meetups", newMeetup);
   }
 
-    // Calling the saveMeetup function and passing in the value of the  nputs
-  //   saveMeetup({
-  //     eventDate: eventDate.val().trim(),
-  //     eventTitle: eventTitle.val().trim(),
-  //     city: city.val().trim(),
-  //     state: state.val().trim()
-  //   });
-  // }
+  function getMeetups(category) {
+    $.get("/api/meetups", function(data) {
+      console.log("Posts", data);
+      posts = data;
+      if (!posts || !posts.length) {
+        displayEmpty();
+      }
+      else {
+        initializeRows();
+      }
+    });
+  }
 
-  // // A function for creating a meetup. Calls meetUps upon completion
-  // function saveMeetup(meetupData) {
-  //   $.post("/api/meetups", meetupData)
-  //     .then(getmeetups);
-  // }
+  getMeetups();
+  // InitializeRows handles appending all of our constructed post HTML inside
+  // blogContainer
+  function initializeRows() {
+    $("#meetupsPlaceholder").empty();
+    var meetupsToAdd = [];
+    for (var i = 0; i < meetups.length; i++) {
+      meetupsToAdd.push(createNewRow(meetups[i]));
+    }
+    $("#meetupsPlaceholder").append(meetupsToAdd);
+  }
 
-  // // Function for creating a new list row for meetups
-  // function createMeetupRow(meetupData) {
-  //   console.log(meetupData);
-  //   var newTr = $("<tr>");
-  //   newTr.data("meetup", meetupData);
-  //   newTr.append("<td>" + meetupData.event_title + "</td>");
-  //   newTr.append("<td>" + meetupData.event_date + "</td>");
-  //   newTr.append("<td>" + meetupData.city + "</td>");
-  //   newTr.append("<td>" + meetupData.state + "</td>");
+  // This function constructs a post's HTML
+  function createNewRow(post) {
+    var newMeetupCard = $("<div>");
+    newMeetupCard.addClass("row");
+    var newMeetupCardHeading = $("<div>");
+    newMeetupCardHeading.addClass("card-header");
+    var newMeetupTitle = $("<h2>")
+    var newMeetupDate = $("<h3>");
+    var newMeetupCategory = $("<h3>");
+    var newMeetupLocation = $("<h3>");
+    
+    newMeetupTitle.text(meetup.title);
+    newMeetupDate.text(meetup.date);
+    newMeetupCategory.text(meetup.category);
+    newMeetupLocation.text(meetup.city + meetup.state);
 
-  //   // newTr.append("<ts will display when we learn joins in the next activity!</td>");
-  //   // newTr.append("<td><a href='/blog?author_id=" + authorData.id + "'>Go to Posts</a></td>");
-  //   // newTr.append("<td><a href='/cms?author_id=" + authorData.id + "'>Create a Post</a></td>");
-  //   // newTr.append("<td><a style='cursor:pointer;color:red' class='delete-author'>Delete Author</a></td>");d># of post
-  //   return newTr;
-  // }
+    newMeetupCardHeading.append(newMeetupTitle);
+    newMeetupCardHeading.append(newMeetupCategory);
+    newMeetupCardHeading.append(newMeetupDate);
+    newMeetupCardHeading.append(newMeetupLocation);
 
-  // // Function for retrieving meetups and getting them ready to be rendered to the page
-  // function getMeetups() {
-  //   $.get("/api/meetups", function(data) {
-  //     var rowsToAdd = [];
-  //     for (var i = 0; i < data.length; i++) {
-  //       rowsToAdd.push(createMeetupRow(data[i]));
-  //     }
-  //     renderMeetupList(rowsToAdd);
-  //     nameInput.val("");
-  //   });
-  // }
+    newMeetupCard.data("post", post);
+    return newMeetupCard;
+  }
 
-  // A function for rendering the list of meetups to the page
-  // function renderMeetupList(rows) {
-  //   meetupList.children().not(":last").remove();
-  //   authorContainer.children(".alert").remove();
-  //   if (rows.length) {
-  //     console.log(rows);
-  //     authorList.prepend(rows);
-  //   }
-  //   else {
-  //     renderEmpty();
-  //   }
-  // }
-
-  // Function for handling what to render when there are no authors
-  // function renderEmpty() {
-  //   var alertDiv = $("<div>");
-  //   alertDiv.addClass("alert alert-danger");
-  //   alertDiv.text("You must create an Author before you can create a Post.");
-  //   authorContainer.append(alertDiv);
-  // }
-
-  // // Function for handling what happens when the delete button is pressed
-  // function handleDeleteButtonPress() {
-  //   var listItemData = $(this).parent("td").parent("tr").data("user");
-  //   var id = listItemData.id;
-  //   $.ajax({
-  //     method: "DELETE",
-  //     url: "/api/members/" + id
-  //   })
-  //     .then(getMeetups);
-  // }
+  function displayEmpty() {
+    $("#meetupsPlaceholder").empty();
+    var messageH2 = $("<h2>");
+    messageH2.css({ "text-align": "center", "margin-top": "50px" });
+    messageH2.html("No meetups currently match your interests. Create a new meetup below or check back soon!");
+    $("#meetupsPlaceholder").append(messageH2);
+  }
 });
