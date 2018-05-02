@@ -1,6 +1,6 @@
 $(document).ready(function() {
   // Getting references to the name input and author container, as well as the table body
-  var $eventDate= $("#date");
+  var $eventDate = $("#date");
   var $eventTitle = $("#title");
   var $category = $('#category option:selected').val();
   var $city = $("#city");

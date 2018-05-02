@@ -4,19 +4,11 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.DATEONLY,
         allowNull: false,
       },
-      time: {
-        type: DataTypes.TIME,
-        allowNull: false,
-      },
       title: {
         type: DataTypes.STRING,
         allowNull: false,
       },
       category: {
-        type: DataTypes.STRING,
-        allowNull: true,
-      },
-      address: {
         type: DataTypes.STRING,
         allowNull: true,
       },
