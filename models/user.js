@@ -56,9 +56,9 @@ module.exports = function(sequelize, DataTypes) {
       onDelete: "cascade"
     });
 
-    User.hasMany(models.Meetup, {
-      onDelete: "cascade"
-    });
+    // User.hasMany(models.Meetup, {
+    //   onDelete: "cascade"
+    // });
   };
   return User;
   // User.sync();
