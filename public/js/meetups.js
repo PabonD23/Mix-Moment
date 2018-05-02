@@ -68,12 +68,15 @@ $(document).ready(function() {
     var titleH3 = $("<h3>");
     var dateP = $("<p>");
     var locationP = $("<p>");
+    var categoryP = $("<p>");
     titleH3.text(meetups.title);
     dateP.text(meetups.date)
     locationP.text(meetups.city + ", " + meetups.state);
+    categoryP.text(meetups.category);
     newDiv.append(titleH3);
     newDiv.append(dateP);
     newDiv.append(locationP);
+    newDiv.append(categoryP);
 
     // newDiv.data("meetups", meetups);
     return newDiv;
