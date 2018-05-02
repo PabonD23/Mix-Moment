@@ -74,6 +74,11 @@ p{
 
 }
 
+.meetupList{
+    background-color: goldenrod;
+
+}
+
 .img-active{
     width:100%;
     height:auto;
@@ -93,4 +98,19 @@ p{
 #submit{
     background-color: #39393A;
     margin-bottom: 20px;
+}
+
+.slider .slides li .caption {
+    top: 3%;
+}
+
+.page-footer{
+        padding-top: 20px;
+        margin-top: 40px;
+        padding-bottom: 30px;
+        font-size: 1rem;
+}
+
+.slider .indicators{
+    bottom: -12px;
 }

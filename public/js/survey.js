@@ -65,7 +65,6 @@ $(document).ready(function() {
   //   Click event for submit button
   $("#submit-survey").on("click", function() {
     addNewUser();
-    addNewInterests();
   });
 
   function addNewUser(event) {
@@ -75,15 +74,7 @@ $(document).ready(function() {
       location: $locationInput.val().trim(),
       username: $usernameInput.val().trim(),
       password: $passwordInput.val().trim(),
-      email: $emailInput.val().trim()
-    };
-
-    $.post("/api/users", newUser);
-  }
-
-  function addNewInterests(event) {
-    var newInterest = {
-      username: $usernameInput.val().trim(),
+      email: $emailInput.val().trim(),
       outdoor: $outdoor.is(":checked"),
       fitness: $fitness.is(":checked"),
       photography: $photography.is(":checked"),
@@ -102,6 +93,6 @@ $(document).ready(function() {
       career: $career.is(":checked")
     };
 
-    $.post("/api/interests", newInterest);
+    $.post("/api/users", newUser);
   }
 });
