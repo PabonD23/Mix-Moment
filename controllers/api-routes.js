@@ -132,6 +132,13 @@ module.exports = function(app) {
       });
   });
 
+  app.get("/api/meetups", function(req, res) {
+    db.Meetup.findAll({})
+      .then(function(meetupsDB) {
+        res.json(meetupsDB);
+      });
+  });
+
   // Route for logging user out
   app.get("/logout", function(req, res) {
     req.logout();

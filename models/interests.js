@@ -79,11 +79,7 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.BOOLEAN,
         allowNull: false,
         default: false,
-      },
-      // foreignKey: {
-      //   User_id: models.User(id),
-      //   allowNull: false,
-      // },
+      }
     });
     //Associate Interests with User
     Interest.associate = function(models) {

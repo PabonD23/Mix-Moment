@@ -2,7 +2,7 @@ $(document).ready(function() {
   // Getting references to the name input and author container, as well as the table body
   var $eventDate= $("#date");
   var $eventTitle = $("#title");
-  var $category = $("category").find( "option:selected" ).prop("value");
+  var $category = $('#category option:selected').val();
   var $city = $("#city");
   var $state = $("#state");
   // Adding event listeners to the form to create a new object, and the button to delete
@@ -11,6 +11,7 @@ $(document).ready(function() {
   $("#SubmitMeetup").on("click", function(){
       //Add function to add new meetup
       addNewMeetup();
+      alert("Meetup added!")
 
   })
 
@@ -31,9 +32,10 @@ $(document).ready(function() {
 
   function getMeetups(category) {
     $.get("/api/meetups", function(data) {
-      console.log("Posts", data);
-      posts = data;
-      if (!posts || !posts.length) {
+      console.log("Meetups", data);
+      meetups = data;
+      console.log("After meetups eq data", meetups);
+      if (!meetups || !meetups.length) {
         displayEmpty();
       }
       else {
@@ -41,48 +43,47 @@ $(document).ready(function() {
       }
     });
   }
+  
 
   getMeetups();
+
   // InitializeRows handles appending all of our constructed post HTML inside
   // blogContainer
   function initializeRows() {
+    console.log("Below", meetups);
     $("#meetupsPlaceholder").empty();
     var meetupsToAdd = [];
     for (var i = 0; i < meetups.length; i++) {
       meetupsToAdd.push(createNewRow(meetups[i]));
     }
+    console.log("After for loop", meetupsToAdd);
     $("#meetupsPlaceholder").append(meetupsToAdd);
   }
 
   // This function constructs a post's HTML
-  function createNewRow(post) {
-    var newMeetupCard = $("<div>");
-    newMeetupCard.addClass("row");
-    var newMeetupCardHeading = $("<div>");
-    newMeetupCardHeading.addClass("card-header");
-    var newMeetupTitle = $("<h2>")
-    var newMeetupDate = $("<h3>");
-    var newMeetupCategory = $("<h3>");
-    var newMeetupLocation = $("<h3>");
-    
-    newMeetupTitle.text(meetup.title);
-    newMeetupDate.text(meetup.date);
-    newMeetupCategory.text(meetup.category);
-    newMeetupLocation.text(meetup.city + meetup.state);
+  function createNewRow(meetups) {
+    var newDiv = $("<div>");
+    newDiv.addClass("meetupList");
+    newDiv.addClass("z-depth-2");
+    var titleH3 = $("<h3>");
+    var dateP = $("<p>");
+    var locationP = $("<p>");
+    titleH3.text(meetups.title);
+    dateP.text(meetups.date)
+    locationP.text(meetups.city + ", " + meetups.state);
+    newDiv.append(titleH3);
+    newDiv.append(dateP);
+    newDiv.append(locationP);
 
-    newMeetupCardHeading.append(newMeetupTitle);
-    newMeetupCardHeading.append(newMeetupCategory);
-    newMeetupCardHeading.append(newMeetupDate);
-    newMeetupCardHeading.append(newMeetupLocation);
-
-    newMeetupCard.data("post", post);
-    return newMeetupCard;
+    // newDiv.data("meetups", meetups);
+    return newDiv;
+  
   }
 
   function displayEmpty() {
     $("#meetupsPlaceholder").empty();
-    var messageH2 = $("<h2>");
-    messageH2.css({ "text-align": "center", "margin-top": "50px" });
+    var messageH2 = $("<h5>");
+    messageH2.addClass("meetupList");
     messageH2.html("No meetups currently match your interests. Create a new meetup below or check back soon!");
     $("#meetupsPlaceholder").append(messageH2);
   }
