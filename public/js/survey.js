@@ -64,12 +64,12 @@ $(document).ready(function() {
 
   //   Click event for submit button
   $("#submit-survey").on("click", function() {
-    addNewUser();
-    addNewInterests();
-    window.location.replace("https://protected-peak-99587.herokuapp.com/meetups.html");
+    addNewUser(function () {
+      window.location.replace("https://protected-peak-99587.herokuapp.com/meetups.html");
+    });
   });
 
-  function addNewUser(event) {
+  function addNewUser(cb) {
     // event.preventDefault();
     var newUser = {
       name: $nameInput.val().trim(),
@@ -95,7 +95,9 @@ $(document).ready(function() {
       career: $career.is(":checked")
     };
 
-    $.post("/api/users", newUser);
+    $.post("/api/users", newUser).then(function () {
+      cb();
+    });
   }
 
   // $("#submit-survey").on("click", function(){
