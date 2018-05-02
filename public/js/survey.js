@@ -65,7 +65,7 @@ $(document).ready(function() {
   //   Click event for submit button
   $("#submit-survey").on("click", function() {
     addNewUser(function () {
-      window.location.replace("https://protected-peak-99587.herokuapp.com/meetups.html");
+      window.location.replace("https://protected-peak-99587.herokuapp.com/meetups");
     });
   });
 
