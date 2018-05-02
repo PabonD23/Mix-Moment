@@ -1,8 +1,8 @@
 $(document).ready(function() {
   // Getting references to the name input and author container, as well as the table body
-  var $eventDate= $("#date");
+  var $eventDate = $("#date");
   var $eventTitle = $("#title");
-  var $category = $("category").find( "option:selected" ).prop("value");
+  var $category = $('#category option:selected').val();
   var $city = $("#city");
   var $state = $("#state");
   // Adding event listeners to the form to create a new object, and the button to delete
@@ -11,6 +11,7 @@ $(document).ready(function() {
   $("#SubmitMeetup").on("click", function(){
       //Add function to add new meetup
       addNewMeetup();
+      alert("Meetup added!")
 
   })
 
@@ -29,79 +30,64 @@ $(document).ready(function() {
     $.post("/api/meetups", newMeetup);
   }
 
-    // Calling the saveMeetup function and passing in the value of the  nputs
-  //   saveMeetup({
-  //     eventDate: eventDate.val().trim(),
-  //     eventTitle: eventTitle.val().trim(),
-  //     city: city.val().trim(),
-  //     state: state.val().trim()
-  //   });
-  // }
+  function getMeetups(category) {
+    $.get("/api/meetups", function(data) {
+      console.log("Meetups", data);
+      meetups = data;
+      console.log("After meetups eq data", meetups);
+      if (!meetups || !meetups.length) {
+        displayEmpty();
+      }
+      else {
+        initializeRows();
+      }
+    });
+  }
+  
 
-  // // A function for creating a meetup. Calls meetUps upon completion
-  // function saveMeetup(meetupData) {
-  //   $.post("/api/meetups", meetupData)
-  //     .then(getmeetups);
-  // }
+  getMeetups();
 
-  // // Function for creating a new list row for meetups
-  // function createMeetupRow(meetupData) {
-  //   console.log(meetupData);
-  //   var newTr = $("<tr>");
-  //   newTr.data("meetup", meetupData);
-  //   newTr.append("<td>" + meetupData.event_title + "</td>");
-  //   newTr.append("<td>" + meetupData.event_date + "</td>");
-  //   newTr.append("<td>" + meetupData.city + "</td>");
-  //   newTr.append("<td>" + meetupData.state + "</td>");
+  // InitializeRows handles appending all of our constructed post HTML inside
+  // blogContainer
+  function initializeRows() {
+    console.log("Below", meetups);
+    $("#meetupsPlaceholder").empty();
+    var meetupsToAdd = [];
+    for (var i = 0; i < meetups.length; i++) {
+      meetupsToAdd.push(createNewRow(meetups[i]));
+    }
+    console.log("After for loop", meetupsToAdd);
+    $("#meetupsPlaceholder").append(meetupsToAdd);
+  }
 
-  //   // newTr.append("<ts will display when we learn joins in the next activity!</td>");
-  //   // newTr.append("<td><a href='/blog?author_id=" + authorData.id + "'>Go to Posts</a></td>");
-  //   // newTr.append("<td><a href='/cms?author_id=" + authorData.id + "'>Create a Post</a></td>");
-  //   // newTr.append("<td><a style='cursor:pointer;color:red' class='delete-author'>Delete Author</a></td>");d># of post
-  //   return newTr;
-  // }
+  // This function constructs a post's HTML
+  function createNewRow(meetups) {
+    var newDiv = $("<div>");
+    newDiv.addClass("meetupList");
+    newDiv.addClass("z-depth-2");
+    var titleH3 = $("<h3>");
+    var dateP = $("<p>");
+    var locationP = $("<p>");
+    var categoryP = $("<p>");
+    titleH3.text(meetups.title);
+    dateP.text(meetups.date)
+    locationP.text(meetups.city + ", " + meetups.state);
+    categoryP.text(meetups.category);
+    newDiv.append(titleH3);
+    newDiv.append(dateP);
+    newDiv.append(locationP);
+    newDiv.append(categoryP);
 
-  // // Function for retrieving meetups and getting them ready to be rendered to the page
-  // function getMeetups() {
-  //   $.get("/api/meetups", function(data) {
-  //     var rowsToAdd = [];
-  //     for (var i = 0; i < data.length; i++) {
-  //       rowsToAdd.push(createMeetupRow(data[i]));
-  //     }
-  //     renderMeetupList(rowsToAdd);
-  //     nameInput.val("");
-  //   });
-  // }
+    // newDiv.data("meetups", meetups);
+    return newDiv;
+  
+  }
 
-  // A function for rendering the list of meetups to the page
-  // function renderMeetupList(rows) {
-  //   meetupList.children().not(":last").remove();
-  //   authorContainer.children(".alert").remove();
-  //   if (rows.length) {
-  //     console.log(rows);
-  //     authorList.prepend(rows);
-  //   }
-  //   else {
-  //     renderEmpty();
-  //   }
-  // }
-
-  // Function for handling what to render when there are no authors
-  // function renderEmpty() {
-  //   var alertDiv = $("<div>");
-  //   alertDiv.addClass("alert alert-danger");
-  //   alertDiv.text("You must create an Author before you can create a Post.");
-  //   authorContainer.append(alertDiv);
-  // }
-
-  // // Function for handling what happens when the delete button is pressed
-  // function handleDeleteButtonPress() {
-  //   var listItemData = $(this).parent("td").parent("tr").data("user");
-  //   var id = listItemData.id;
-  //   $.ajax({
-  //     method: "DELETE",
-  //     url: "/api/members/" + id
-  //   })
-  //     .then(getMeetups);
-  // }
+  function displayEmpty() {
+    $("#meetupsPlaceholder").empty();
+    var messageH2 = $("<h5>");
+    messageH2.addClass("meetupList");
+    messageH2.html("No meetups currently match your interests. Create a new meetup below or check back soon!");
+    $("#meetupsPlaceholder").append(messageH2);
+  }
 });

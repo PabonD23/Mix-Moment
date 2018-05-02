@@ -74,6 +74,11 @@ p{
 
 }
 
+.meetupList{
+    background-color: goldenrod;
+
+}
+
 .img-active{
     width:100%;
     height:auto;

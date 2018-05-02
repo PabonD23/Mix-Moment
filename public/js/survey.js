@@ -66,6 +66,7 @@ $(document).ready(function() {
   $("#submit-survey").on("click", function() {
     addNewUser();
     addNewInterests();
+    window.location.replace("https://protected-peak-99587.herokuapp.com/meetups.html");
   });
 
   function addNewUser(event) {
@@ -75,15 +76,7 @@ $(document).ready(function() {
       location: $locationInput.val().trim(),
       username: $usernameInput.val().trim(),
       password: $passwordInput.val().trim(),
-      email: $emailInput.val().trim()
-    };
-
-    $.post("/api/users", newUser);
-  }
-
-  function addNewInterests(event) {
-    var newInterest = {
-      username: $usernameInput.val().trim(),
+      email: $emailInput.val().trim(),
       outdoor: $outdoor.is(":checked"),
       fitness: $fitness.is(":checked"),
       photography: $photography.is(":checked"),
@@ -102,6 +95,11 @@ $(document).ready(function() {
       career: $career.is(":checked")
     };
 
-    $.post("/api/interests", newInterest);
+    $.post("/api/users", newUser);
   }
+
+  // $("#submit-survey").on("click", function(){
+  //   window.location.href = "localhost:8080/meetups.html";
+  // })
+
 });
