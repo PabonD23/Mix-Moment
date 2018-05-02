@@ -1,10 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
     var Interest = sequelize.define("Interest", {
-      // Name cannot be null
-      username: {
-        type: DataTypes.STRING,
-        allowNull: false
-      },
       outdoor: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
@@ -84,7 +79,7 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.BOOLEAN,
         allowNull: false,
         default: false,
-      },
+      }
     });
     //Associate Interests with User
     Interest.associate = function(models) {
